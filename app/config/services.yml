@@ -1,0 +1,11 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+parameters:
+    #parameter_name: value
+    dataloader_mathes_url: http://213.190.51.198/test-services/scheduleAndResults.php
+    dataloader_team_url: http://213.190.51.198/test-services/team.php
+
+services:
+    app.data_loader:
+        class:     AppBundle\Service\DataLoader
+        arguments: [%dataloader_mathes_url%, %dataloader_team_url%]

@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Results</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+        <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous">
+
+        <link rel="stylesheet"
+              href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+
+
+        <script>
+            (function ($) {
+
+                $(document).ready(function () {
+                    $('#datatable').DataTable({
+                        "paging": false,
+                        "info": false
+                    });
+                });
+
+            })(jQuery);
+
+        </script>
+    </head>
+    <body>
+        <div>
+
+            <h3>Match results</h3>
+
+            {% if results is not empty %}
+                <table id="datatable" class="table table-bordered table-striped">
+                    <thead>
+                    <th>Date</th>
+                    <th>Team A</th>
+                    <th>Team B</th>
+                    <th>Score</th>
+                    </thead>
+                    <tbody>
+                        {% for row in results %}
+                            <tr>
+                                <td>{{row.date}}</td>
+                                <td>{{row.teamAName}}</td>
+                                <td>{{row.teamBName}}</td>
+                                <td>{{row.score}}</td>
+                            </tr>
+                        {% endfor %}
+                    <tbody>
+                </table>
+            {% else %}
+                No results
+            {% endif %}
+        </div>
+
+        <div>
+
+            <h3>Standings</h3>
+
+            {% if standings is not empty %}
+                <table id="standings" class="table table-bordered table-striped">
+                    <thead>
+                    <th>Name</th>
+                    <th>Wins</th>
+                    </thead>
+                    <tbody>
+                        {% for row in standings %}
+                            <tr>
+                                <td>{{row.name}}</td>
+                                <td>{{row.wins}}</td>
+                            </tr>
+                        {% endfor %}
+                    <tbody>
+                </table>
+            {% else %}
+                No results
+            {% endif %}
+        </div>
+    </body>
+</html>

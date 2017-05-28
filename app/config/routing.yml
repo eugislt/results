@@ -1,0 +1,8 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+matches:
+    path:      /matches
+    defaults:  { _controller: AppBundle:Results:results }
+
