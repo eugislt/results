@@ -1,4 +1,8 @@
-basketball
-==========
+Results application
+===================
 
-A Symfony project created on May 23, 2017, 2:59 pm.
+## Installation
+
+1. Clone repository
+2. Run composer install from your command line inside of cloned directory
+3. Run http://pathtoproject/matches
